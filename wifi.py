@@ -1,0 +1,95 @@
+from cwio import *
+from cwio.const import *
+import ui
+import res
+import os
+import time
+
+support = False
+
+try:
+    import network
+    from network import WLAN
+    support = True
+except ImportError:
+    network = None
+    WLAN = None
+
+
+statuses = {0: "IDLE", -1: "CONNECTING", -2: "WRONG_PASSWORD", -3: "NO_AP_FOUND", -4: "CONNECT_FAIL", 3: "GOT_IP"}
+
+if support:
+    network.hostname("0xCA510_")
+    wlan = WLAN(network.STA_IF)
+else:
+    wlan = None
+
+if support:
+    def connect(w: WLAN, ssid: str, psw: str | None) -> bool:
+        w.connect(ssid, psw)
+        
+        print("[WIFI] Connecting to \"" + ssid + "\"")
+        screen.clear()
+        screen.write("Connecting to \"" + ssid + "\"...\n\nNOTE: This operation will automatically time out\nafter 15 seconds if the AP doesn't reply in that\ntime frame.", 0, 0, SCR.COLOR.BLACK, font.miniwi)
+        screen.apply()
+        
+        start = time.ticks_ms()
+        while not w.isconnected():
+            s = w.status()
+            
+            if s in [-2, -3, -4]:
+                print("[WIFI] Error: " + statuses[s])
+                ui.notify("No connection", statuses[s] + "\n\nPress [ANY] to continue...", res.ui.error)
+                return False
+            
+            if time.ticks_diff(time.ticks_ms(), start) > 15 * 1000:
+                print("[WIFI] Timed out after 15 seconds")
+                ui.notify("No connection", "Timed out after 15 seconds" + "\n\nPress [ANY] to continue...", res.ui.error)
+                return False
+            
+            time.sleep(1)
+        print("[WIFI] Connected: " + str(w.ifconfig()))
+        screen.clear()
+        screen.write(str("Successfully connected!\nIP: " + w.ifconfig()[0]) + "\n\nPress [ANY] to continue...", 0, 0, SCR.COLOR.BLACK, font.miniwi)
+        screen.apply()
+        keyboard.wait()
+        return True
+    
+else:
+    def connect(w, ssid: str, psw: str | None) -> bool:
+        return False
+    
+
+if support:
+    def choose_connect():
+        wlan.active(True)
+        # wlan.config(mac=b"\xDE\xAD\xC0\xDE\x00\x00")
+        while True:
+            c = ui.choose(("Saved",))
+            if c == 0:
+                if not "wifi.txt" in os.listdir("/conf"):
+                    with open("/conf/wifi.txt", "x") as _:
+                        pass
+                    
+                with open("/conf/wifi.txt", "r") as f:
+                    wifis = f.read().replace("\r\n", "\n").strip("\n").split("\n")
+                
+                opts = []
+                for wifi in wifis:
+                    if wifi == "":
+                        continue
+                    opts.append(wifi.split("//", 1)[0])
+                c = ui.choose(opts)
+                if c >= 0:
+                    wifi = wifis[c].split("//", 1)
+                    ssid, psw = wifi[0], (wifi[1] if len(wifi) > 1 else None)
+                    if connect(wlan, ssid, psw):
+                        return True
+            elif c == -1:
+                return False
+            
+    
+else:
+    def choose_connect():
+        return False
+    

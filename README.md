@@ -1,15 +1,46 @@
-# About Deimos
-Deimos is an operating system written in [Zink](https://github.com/k0dekiller/Zink) for Raspberry Pi Picos and Pico Ws running MicroPython.
+# XIOS 🚀
+> **The Ultimate Custom Operating System for Casio FX-570EX & FX-991EX (Powered by Raspberry Pi Pico)**
 
-# Features
-Deimos implements many features that aren't normally present on cheap non-programmable calculators like the Casio fx-991CW, such as:
-1. Robust API for user-made applications and libraries;
-2. Stable foundation for other calculator projects (like other OSes);
-3. Integrated file editor to make Python projects on the go.
+![banner](banner1_5.jpg)
 
-# Hardware
-Currently, the API supports the CWII series and the CWI series through [itzmtt's port](https://github.com/itzmtt/deimosEX).
-CWII+ calculators (like the fx-9910CW) are already supported since they ship with the same hardware as their older CWII counterparts.
+---
 
-# Other info
-This GitHub repo was originally meant to keep track of releases and code changes. For now, you can find more information on the [Discord server](https://discord.gg/CgYEJJDGe7).
+## 🌟 Overview
+**XIOS** is a lightweight, high-performance custom operating system designed to transform your **Casio FX-570EX** and **FX-991EX** calculators into versatile handheld devices. Powered by the **Raspberry Pi Pico**, XIOS delivers a buttery-smooth experience with minimal bloatware.
+
+---
+
+## ✨ Key Features
+
+* **⚡ Ultra-Fast Text & Document Viewer**
+  * Read `.txt` files effortlessly without any lag.
+  * Super responsive and quick loading times for your documents.
+
+* **🎮 Built-in Retro Games**
+  * **Snake:** The classic game to pass the time.
+  * **Tetris:** Test your block-stacking skills directly on your calculator!
+
+* **🧹 Minimalist & Lightweight**
+  * **Minimal Bloatware:** Built strictly with essential features for maximum speed.
+  * **Clean UI:** Simple, intuitive, and distraction-free interface.
+
+* **💡 Pico Powered**
+  * Fully leverages the processing power and memory of the Raspberry Pi Pico.
+
+---
+
+## 🚀 Quick Setup
+
+1. **Connect** your Raspberry Pi Pico to your PC.
+2. **Wire/Assemble** the hardware to your FX-570EX / FX-991EX calculator.
+3. **Flash** the XIOS firmware (`.uf2`) onto the Pico.
+4. Power up and enjoy XIOS!
+
+---
+
+## 🤝 Community & Support
+
+> **Thanks for using XIOS!** Join our growing community to get the latest updates, technical support, or just to chat with fellow XIOS users:
+
+---
+<p align="center">Made with ❤️ for the FX-570EX & FX-991EX Modding Community</p>

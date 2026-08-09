@@ -1,5 +1,0 @@
-This configuration file's only purpose is to demonstrate how an example
-configuration system can be set up.
-
-If you can read this file from the calculator, congrats! You successfully
-managed to read a file from MicroPython's filesystem.
