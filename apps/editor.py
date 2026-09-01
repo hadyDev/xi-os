@@ -12,7 +12,7 @@ def main():
         with open(file, "r") as f:
             l_lines = f.read().splitlines()
     except Exception:
-        l_lines = ["Ralat membaca fail."]
+        l_lines = ["Failed to read the file"]
         
     if not l_lines: 
         l_lines = [""]

@@ -1,5 +1,6 @@
 hello there!
 Thank you for using XIOS as main OS. 
 
+By XI_CORP
+
 Have funs!
-Press ALPHA to back into HOME

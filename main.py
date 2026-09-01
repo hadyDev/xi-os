@@ -29,7 +29,7 @@ keyboard.init()
 
 scr = ui.Screen()
 
-scr + (title := ui.Label(72, 15, "XIOS", SCR.COLOR.DARK, font.classwiz_cw)) + (desc := ui.Label(72, 30, "Press ALPHA\n" + "\n", SCR.COLOR.BLACK, font.miniwi)) + (desc := ui.Label(74, 40, "Vesion 1.5", SCR.COLOR.BLACK, font.miniwi))
+scr + (title := ui.Label(72, 15, "XIOS", SCR.COLOR.DARK, font.classwiz_cw)) + (desc := ui.Label(72, 30, "Press ALPHA\n" + "\n", SCR.COLOR.BLACK, font.miniwi)) + (desc := ui.Label(74, 40, "Vesion 1.6", SCR.COLOR.BLACK, font.miniwi))
 
 applist = []
 for app in apps:
