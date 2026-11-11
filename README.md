@@ -6,7 +6,7 @@
 ---
 
 ## 🌟 Overview
-**XIOS** is a lightweight, high-performance custom operating system designed to transform your **Casio FX-570EX** and **FX-991EX** calculators into versatile handheld devices. Powered by the **Raspberry Pi Pico**, XIOS delivers a buttery-smooth experience with minimal bloatware.
+**XIOS** is a lightweight, high-performance custom operating system designed to transform your **Casio FX-570EX** and **FX-991EX** calculators into versatile handheld devices. Powered by the **Raspberry Pi Pico**, XIOS delivers a buttery-smooth experience with minimal setup.
 
 ---
 ## 🚀 Quick Setup
